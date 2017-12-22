@@ -6,12 +6,17 @@ pipeline {
     
   }
   stages {
-    stage('Test') {
+    stage('Build') {
       steps {
         sh '''mkdir -p build
 cd build 
 cmake ..
 make '''
+      }
+    }
+    stage('Test') {
+      steps {
+        sh './runTests -gtest_output=xml:gtestresults.xml'
       }
     }
   }
