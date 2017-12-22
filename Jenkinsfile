@@ -16,7 +16,12 @@ make '''
     }
     stage('Test') {
       steps {
-        sh './runTests -gtest_output=xml:gtestresults.xml'
+        sh '/build/runTests -gtest_output=xml:gtestresults.xml'
+      }
+      post {
+        always{
+          junit 'build/gtestresults.xml'
+        }
       }
     }
   }
