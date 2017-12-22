@@ -20,7 +20,7 @@ make '''
       }
       post {
         always {
-          junit 'build/*gtestresults.xml'
+          junit '*gtestresults.xml'
           
         }
         
