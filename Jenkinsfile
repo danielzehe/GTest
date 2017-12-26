@@ -26,5 +26,10 @@ make '''
         
       }
     }
+    stage('Finishing Touches') {
+        steps {
+          slackSend(message: 'Build and Test done', channel: '#test')
+        }
+      }
   }
 }
