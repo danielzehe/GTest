@@ -28,7 +28,7 @@ make '''
     }
     stage('Finishing Touches') {
         steps {
-          slackSend(message: 'Build and Test done', channel: '#test')
+          slackSend(message: "Build and Test done ${env.JOB_NAME} ${env.BUILD_NUMBER}", channel: '#test')
         }
       }
   }
